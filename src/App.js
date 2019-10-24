@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from './components/layout/Navigation.js';
+import Navbar from './components/layout/Navigation';
+import UserItem from './components/users/UserItem';
 import './App.css';
 
 class App extends Component {
@@ -11,12 +12,13 @@ class App extends Component {
     /*this function can be write as 
     const bar = () => 'hello foo';
     const loading = true;
-    if (loading) {
+    if (loading ) {
       return 'loading...';
     }*/
     return (
       <div className='App'>
         <Navbar />
+        <UserItem />
       </div>
     );
     /*React.createElement(
