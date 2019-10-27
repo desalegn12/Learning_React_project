@@ -7,7 +7,7 @@ export class Navigation extends Component {
   };
   render() {
     return (
-      <div className='navbar bg-primary'>
+      <div className='navbar bg-primary' id='fixed-nav-bar'>
         <h1> Navbar</h1>
       </div>
     );

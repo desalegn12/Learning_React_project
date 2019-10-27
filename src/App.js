@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navigation';
-import UserItem from './components/users/UserItem';
+import Users from './components/users/Users';
+import axios from 'axios';
 import './App.css';
 
 class App extends Component {
+  state = {
+    users: [],
+    loading: false
+  };
+  async componentDidMount() {
+    this.setState({ loading: true });
+    const res = await axios.get('https://api.github.com/users');
+    this.setState({ users: res.data, loading: false });
+  }
   render() {
     /*const name = 'Jhone Deo';
     const foo = function() {
@@ -18,13 +28,16 @@ class App extends Component {
     return (
       <div className='App'>
         <Navbar />
-        <UserItem />
+
+        <div className='container'>
+          <Users loading={this.state.loading} users={this.state.users} />
+        </div>
       </div>
     );
     /*React.createElement(
       'div',
       { className: 'app' },
-      React.createElement('h1', null, 'Hello from react')
+      React.createEleme.nt('h1', null, 'Hello from react')
     );
 
     /*class must be written as className instead of class it self 
